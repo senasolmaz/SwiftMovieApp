@@ -48,7 +48,8 @@ class SplashViewController: UIViewController {
     
     func showAlert() {
         
-        self.titleLabel.text = "Hata! \n İnternet bağlantınızı \n kontrol ediniz"
+        self.titleLabel.text = "İnternet bağlantınızı \n kontrol ediniz!"
+        
         
 //        let alert = UIAlertController(title: "Hata!", message: "İnternet bağlantınızı kontrol ediniz", preferredStyle: UIAlertController.Style.alert)
 //        alert.addAction(UIAlertAction(title: "Retry", style: .cancel, handler: { (_) in
