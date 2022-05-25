@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>940319884879-sq9q2995abadrgu3b88j6961jc4ufa6b.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.940319884879-sq9q2995abadrgu3b88j6961jc4ufa6b</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB_lcpv8fMckq1C_9AcAe0bqmVss0f20ZU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>940319884879</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.sena.EtsTurMovieDB</string>
+	<key>PROJECT_ID</key>
+	<string>momosfood-73c7c</string>
+	<key>STORAGE_BUCKET</key>
+	<string>momosfood-73c7c.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:940319884879:ios:02322aa7d72fa6dd13cc3a</string>
+</dict>
+</plist>
