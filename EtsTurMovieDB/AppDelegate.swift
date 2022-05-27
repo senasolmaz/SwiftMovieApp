@@ -2,8 +2,6 @@
 //  AppDelegate.swift
 //  EtsTurMovieDB
 //
-//  Created by Zeliha Sena Solmaz / Emlak Katılım - Dijital Uygulamalar Servisi on 25.05.2022.
-//
 
 import UIKit
 import CoreData

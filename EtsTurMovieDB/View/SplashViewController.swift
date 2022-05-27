@@ -2,7 +2,6 @@
 //  SplashViewController.swift
 //  EtsTurMovieDB
 //
-//  Created by Zeliha Sena Solmaz / Emlak Katılım - Dijital Uygulamalar Servisi on 25.05.2022.
 //
 
 import UIKit
@@ -10,6 +9,7 @@ import UIKit
 class SplashViewController: UIViewController {
 
     var splashTitle: String? = ""
+    var window: UIWindow?
     
     @IBOutlet var titleLabel: UILabel!
     override func viewDidLoad() {
@@ -32,9 +32,12 @@ class SplashViewController: UIViewController {
         }}
     
     func displayNewValues() {
-        let newLabelText = remoteConfig.configValue(forKey: "splashTitle").stringValue ?? "fff"
+        let newLabelText = remoteConfig.configValue(forKey: "splashTitle").stringValue ?? "Mesaj Alınamadı"
         splashTitle = newLabelText
         self.titleLabel.text = splashTitle
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+            self.performSegue(withIdentifier: "openMainPage", sender: self)
+        }
     }
     
     func checkConnection() -> Bool

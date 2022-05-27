@@ -1,0 +1,6 @@
+framework module Pods_EtsTurMovieDB {
+  umbrella header "Pods-EtsTurMovieDB-umbrella.h"
+
+  export *
+  module * { export * }
+}
