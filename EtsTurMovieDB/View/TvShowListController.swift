@@ -9,7 +9,7 @@ class TvShowListController: UIViewController {
 
     @IBOutlet var showsTableView: UITableView!
     
-    var dataViewModel = ShowsViewModel()
+    let dataViewModel = ShowsViewModel()
     var modelDetail: TvShowItem?
     
     override func viewDidLoad() {
@@ -32,7 +32,7 @@ class TvShowListController: UIViewController {
         dataViewModel.showError = {
             DispatchQueue.main.async {
                 self.removeSpinner()
-//                self.showAlert("Location Api Error")
+                self.showAlert(alertText: "Hata", alertMessage: "Servis ile bağlantı kurulamadı!")
             }
         }
         dataViewModel.showLoading = {

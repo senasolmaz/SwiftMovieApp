@@ -10,14 +10,14 @@ class SearchViewController: UIViewController {
     @IBOutlet var searchCollectionView: UICollectionView!
     @IBOutlet var searchTextfield: UITextField!
     
-    var dataViewModel = SearchViewModel()
+    let dataViewModel = SearchViewModel()
     var searchQuery: String? = ""
-    
+    var modelDetail: TvShowItem?
     
     @IBAction func clickButton(_ sender: Any) {
     
         if searchTextfield.text == "" {
-            print("Lütfen bir şey giriniz..")
+            showAlert(alertText: "Uyarı!", alertMessage: "Lütfen dizi ismi giriniz")
             dataViewModel.tvShowsModel = []
         }else {
             self.searchQuery = searchTextfield.text
@@ -31,7 +31,7 @@ class SearchViewController: UIViewController {
         self.title = "Search"
         self.navigationController?.navigationBar.backgroundColor = .white
         registerTableViewCells()
-//        self.searchTextfield.delegate = self
+        self.searchTextfield.becomeFirstResponder()
 
     }
 
@@ -44,7 +44,7 @@ class SearchViewController: UIViewController {
         dataViewModel.showError = {
             DispatchQueue.main.async {
                 self.removeSpinner()
-//                self.showAlert("Location Api Error")
+                self.showAlert(alertText: "Hata", alertMessage: "Servis ile bağlantı kurulamadı!")
             }
         }
         dataViewModel.showLoading = {
@@ -72,20 +72,6 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-        let noOfCellsInRow = 3
-
-        let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
-
-        let totalSpace = flowLayout.sectionInset.left
-            + flowLayout.sectionInset.right
-            + (flowLayout.minimumInteritemSpacing * CGFloat(noOfCellsInRow - 1))
-
-        let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(noOfCellsInRow))
-
-        return CGSize(width: size, height: size)
-    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if self.dataViewModel.tvShowsModel != nil {
@@ -118,6 +104,18 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
            }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        self.modelDetail = dataViewModel.tvShowsModel[indexPath.row]
+        performSegue(withIdentifier: "detailFromSearch", sender: modelDetail)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let vc = segue.destination as? TvShowsDetailViewController, let detailToSend = sender as? TvShowItem {
+            vc.detailModel = detailToSend
+        }
+    }
     
     
 }

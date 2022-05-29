@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/zs1009/Documents/GitHub/SwiftMovieApp/EtsTurMovieDB/Helper/Shows+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/zs1009/Documents/GitHub/SwiftMovieApp/EtsTurMovieDB/Helper/Shows+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
       location = "group:EtsTurMovieDB.xcodeproj">
    </FileRef>
    <FileRef

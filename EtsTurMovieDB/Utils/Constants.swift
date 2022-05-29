@@ -15,17 +15,3 @@ struct Constants {
     static let searchUrl = "https://api.themoviedb.org/3/search/tv?"
 }
 
-extension UIViewController {
-    
-    func urlConvertImage(url: String) -> UIImage {
-        
-        let url = URL(string: Constants.imagePath + url)
-        let data = try? Data(contentsOf: url!)
-
-        if let imageData = data {
-            let image = UIImage(data: imageData)
-            return image!
-        }
-        return UIImage()
-    }
-}

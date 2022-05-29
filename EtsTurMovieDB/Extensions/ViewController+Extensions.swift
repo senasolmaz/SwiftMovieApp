@@ -2,8 +2,6 @@
 //  ViewController+Extensions.swift
 //  EtsTurMovieDB
 //
-//  Created by Zeliha Sena Solmaz / Emlak Katılım - Dijital Uygulamalar Servisi on 27.05.2022.
-//
 
 import Foundation
 import UIKit
@@ -11,6 +9,7 @@ import UIKit
 var vSpinner : UIView?
 
 extension UIViewController {
+    
     func showSpinner(onView : UIView) {
         let spinnerView = UIView.init(frame: onView.bounds)
         spinnerView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
@@ -32,4 +31,26 @@ extension UIViewController {
             vSpinner = nil
         }
     }
+    
+    func urlConvertImage(url: String) -> UIImage {
+        
+        let url = URL(string: Constants.imagePath + url)
+        let data = try? Data(contentsOf: url!)
+
+        if let imageData = data {
+            let image = UIImage(data: imageData)
+            return image!
+        }
+        return UIImage()
+    }
+    
+    func showAlert(alertText : String, alertMessage : String) {
+        let alert = UIAlertController(title: alertText, message: alertMessage, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+}
+
+extension UIViewController {
+    
 }

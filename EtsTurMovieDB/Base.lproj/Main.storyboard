@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -177,17 +178,46 @@
             </objects>
             <point key="canvasLocation" x="2834.7826086956525" y="-131.25"/>
         </scene>
-        <!--View Controller-->
+        <!--Favorite View Controller-->
         <scene sceneID="tin-Ia-W5a">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="YWr-ge-3Se" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="YWr-ge-3Se" customClass="FavoriteViewController" customModule="EtsTurMovieDB" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="P0g-Vx-XQn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="HVU-eV-vJ6">
+                                <rect key="frame" x="0.0" y="56" width="414" height="757"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="56" id="VYo-Ai-C4y" customClass="MovieItemCell" customModule="EtsTurMovieDB" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="56"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VYo-Ai-C4y" id="Dlx-Ko-FeH">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="YWr-ge-3Se" id="b6I-MQ-Svf"/>
+                                    <outlet property="delegate" destination="YWr-ge-3Se" id="xBI-xK-VlF"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="SC2-Km-M3I"/>
                         <color key="backgroundColor" red="0.92941176469999998" green="0.1137254902" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="SC2-Km-M3I" firstAttribute="bottom" secondItem="HVU-eV-vJ6" secondAttribute="bottom" id="IEH-OT-sXp"/>
+                            <constraint firstItem="HVU-eV-vJ6" firstAttribute="leading" secondItem="SC2-Km-M3I" secondAttribute="leading" id="agg-UI-Cyj"/>
+                            <constraint firstItem="HVU-eV-vJ6" firstAttribute="top" secondItem="SC2-Km-M3I" secondAttribute="top" id="bus-me-uPa"/>
+                            <constraint firstItem="SC2-Km-M3I" firstAttribute="trailing" secondItem="HVU-eV-vJ6" secondAttribute="trailing" id="qSg-88-qAU"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0u3-5g-JYe"/>
+                    <connections>
+                        <outlet property="favTableView" destination="HVU-eV-vJ6" id="us5-QD-Eet"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="REd-Pe-als" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -239,6 +269,21 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nln-SK-e5m">
+                                <rect key="frame" x="349" y="81" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="iVw-LD-tDe"/>
+                                    <constraint firstAttribute="width" constant="40" id="rNL-c7-rhH"/>
+                                </constraints>
+                                <color key="tintColor" name="AccentColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="heart.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="17" scale="large"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="addFavButton:" destination="qdf-wp-jfT" eventType="touchUpInside" id="AX2-8Q-ayB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="i5c-1L-ApT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -247,10 +292,12 @@
                             <constraint firstItem="QwU-ei-uC6" firstAttribute="top" secondItem="nNh-P9-D8Z" secondAttribute="bottom" constant="4" id="6MR-mj-4VG"/>
                             <constraint firstItem="yRh-x3-sd7" firstAttribute="top" secondItem="i5c-1L-ApT" secondAttribute="top" id="7Vh-5z-kMM"/>
                             <constraint firstItem="yRh-x3-sd7" firstAttribute="leading" secondItem="i5c-1L-ApT" secondAttribute="leading" id="BSA-JY-3kY"/>
+                            <constraint firstItem="i5c-1L-ApT" firstAttribute="trailing" secondItem="Nln-SK-e5m" secondAttribute="trailing" constant="25" id="EW7-10-OXx"/>
                             <constraint firstItem="dpC-n6-BCq" firstAttribute="top" secondItem="QwU-ei-uC6" secondAttribute="bottom" constant="10" id="IkK-jz-AXF"/>
                             <constraint firstItem="i5c-1L-ApT" firstAttribute="trailing" secondItem="yRh-x3-sd7" secondAttribute="trailing" id="Jme-Ne-89y"/>
                             <constraint firstItem="dpC-n6-BCq" firstAttribute="leading" secondItem="i5c-1L-ApT" secondAttribute="leading" constant="15" id="LdK-Cg-qeS"/>
                             <constraint firstItem="i5c-1L-ApT" firstAttribute="trailing" secondItem="dpC-n6-BCq" secondAttribute="trailing" constant="15" id="MFl-sV-F2j"/>
+                            <constraint firstItem="Nln-SK-e5m" firstAttribute="top" secondItem="i5c-1L-ApT" secondAttribute="top" constant="25" id="Usm-sU-vqS"/>
                             <constraint firstItem="spk-w3-Ron" firstAttribute="leading" secondItem="i5c-1L-ApT" secondAttribute="leading" constant="15" id="WMi-fj-i7b"/>
                             <constraint firstItem="spk-w3-Ron" firstAttribute="top" secondItem="yRh-x3-sd7" secondAttribute="bottom" constant="20" id="Xs5-Iz-OQe"/>
                             <constraint firstItem="i5c-1L-ApT" firstAttribute="trailing" secondItem="spk-w3-Ron" secondAttribute="trailing" constant="15" id="gB9-TR-2y7"/>
@@ -355,10 +402,14 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="zBh-Zl-ROh"/>
+        <segue reference="5Vm-Bq-aLw"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <namedColor name="AccentColor">
+            <color red="1" green="0.79199999570846558" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

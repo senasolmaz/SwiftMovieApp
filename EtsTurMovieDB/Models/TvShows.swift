@@ -9,7 +9,7 @@ import Foundation
 struct TvShowItem: Codable {
     
     var backdrop_path: String?
-    var id: Int?
+    var id: Int32?
     var name: String?
     var overview: String?
     var first_air_date: String?

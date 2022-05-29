@@ -15,6 +15,16 @@ class TvShowsDetailViewController: UIViewController {
     @IBOutlet var posterImageView: UIImageView!
     
     var detailModel: TvShowItem?
+    let favViewModel = FavoriteViewModel()
+    
+    @IBAction func addFavButton(_ sender: Any) {
+        
+        if self.favViewModel.saveData(model: detailModel!) {
+        showAlert(alertText: "Bilgi", alertMessage: "Dizi favoriye eklendi!")
+        }else {
+            showAlert(alertText: "Hata", alertMessage: "Dizi zaten favori listesinde!")
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

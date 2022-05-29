@@ -35,6 +35,9 @@
 		A78EFA7C2843494C0025B77C /* SearchItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A78EFA7A2843494C0025B77C /* SearchItemCell.xib */; };
 		A78EFA7E28434D0D0025B77C /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78EFA7D28434D0D0025B77C /* SearchViewModel.swift */; };
 		A78EFA8028435A6A0025B77C /* TvShowsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78EFA7F28435A6A0025B77C /* TvShowsDetailViewController.swift */; };
+		A7E116882843CB28004D314F /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E116872843CB28004D314F /* CoreDataHelper.swift */; };
+		A7E116962843CF48004D314F /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E116952843CF48004D314F /* FavoriteViewModel.swift */; };
+		A7E116982843CFBD004D314F /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E116972843CFBD004D314F /* FavoriteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +69,9 @@
 		A78EFA7A2843494C0025B77C /* SearchItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchItemCell.xib; sourceTree = "<group>"; };
 		A78EFA7D28434D0D0025B77C /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		A78EFA7F28435A6A0025B77C /* TvShowsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowsDetailViewController.swift; sourceTree = "<group>"; };
+		A7E116872843CB28004D314F /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		A7E116952843CF48004D314F /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
+		A7E116972843CFBD004D314F /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		D03C441FA1824487520537E3 /* Pods-EtsTurMovieDB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EtsTurMovieDB.debug.xcconfig"; path = "Target Support Files/Pods-EtsTurMovieDB/Pods-EtsTurMovieDB.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,6 +138,7 @@
 				A714D8852840D9F800D9341D /* BaseViewModel.swift */,
 				A714D8872840DA1B00D9341D /* ShowsViewModel.swift */,
 				A78EFA7D28434D0D0025B77C /* SearchViewModel.swift */,
+				A7E116952843CF48004D314F /* FavoriteViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -157,6 +164,7 @@
 		A74A9A84283EA6B100F14D7E /* EtsTurMovieDB */ = {
 			isa = PBXGroup;
 			children = (
+				A7E116862843CB0A004D314F /* Helper */,
 				A78EFA73284141D90025B77C /* Extensions */,
 				A714D8842840D9E700D9341D /* ViewModel */,
 				A714D8812840D62A00D9341D /* Network */,
@@ -186,6 +194,7 @@
 				A714D871283FE1D700D9341D /* HomePageViewController.swift */,
 				A78EFA76284346C50025B77C /* SearchViewController.swift */,
 				A78EFA7F28435A6A0025B77C /* TvShowsDetailViewController.swift */,
+				A7E116972843CFBD004D314F /* FavoriteViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -221,6 +230,14 @@
 				A78EFA7A2843494C0025B77C /* SearchItemCell.xib */,
 			);
 			path = SearchItem;
+			sourceTree = "<group>";
+		};
+		A7E116862843CB0A004D314F /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				A7E116872843CB28004D314F /* CoreDataHelper.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,13 +376,16 @@
 				A74A9A86283EA6B100F14D7E /* AppDelegate.swift in Sources */,
 				A74A9AA1283EA7C200F14D7E /* Reachability.swift in Sources */,
 				A78EFA75284141EB0025B77C /* ViewController+Extensions.swift in Sources */,
+				A7E116982843CFBD004D314F /* FavoriteViewController.swift in Sources */,
 				A74A9A88283EA6B100F14D7E /* SceneDelegate.swift in Sources */,
 				A714D88A2840FE4A00D9341D /* Constants.swift in Sources */,
 				A714D8832840D63E00D9341D /* ApiService.swift in Sources */,
+				A7E116882843CB28004D314F /* CoreDataHelper.swift in Sources */,
 				A714D87C2840CBB800D9341D /* MovieItemCell.swift in Sources */,
 				A74A9A90283EA6B100F14D7E /* EtsTurMovieDB.xcdatamodeld in Sources */,
 				A78EFA7E28434D0D0025B77C /* SearchViewModel.swift in Sources */,
 				A74A9A9E283EA73C00F14D7E /* SplashViewController.swift in Sources */,
+				A7E116962843CF48004D314F /* FavoriteViewModel.swift in Sources */,
 				A714D8882840DA1B00D9341D /* ShowsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
