@@ -4,6 +4,7 @@
 //
 
 import Foundation
+
 class BaseViewModel {
     
     var reloadTableView: (()->())?

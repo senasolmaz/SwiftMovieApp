@@ -10,9 +10,13 @@ class TvShowListController: UIViewController {
     @IBOutlet var showsTableView: UITableView!
     
     var dataViewModel = ShowsViewModel()
+    var modelDetail: TvShowItem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.title = "TV Shows"
+        self.navigationController?.navigationBar.backgroundColor = .white
 
         registerTableViewCells()
         initViewModel()
@@ -27,18 +31,18 @@ class TvShowListController: UIViewController {
         }
         dataViewModel.showError = {
             DispatchQueue.main.async {
-//                self.view.stopLoading()
+                self.removeSpinner()
 //                self.showAlert("Location Api Error")
             }
         }
         dataViewModel.showLoading = {
             DispatchQueue.main.async {
-//                self.view.showLoading()
+                self.showSpinner(onView: self.view)
             }
         }
         dataViewModel.hideLoading = {
             DispatchQueue.main.async {
-//                self.view.stopLoading()
+                self.removeSpinner()
             }
         }
         dataViewModel.getTvSeriesData()
@@ -76,15 +80,25 @@ extension TvShowListController: UITableViewDelegate, UITableViewDataSource {
         cell.movieTitleLabel.text = cellVM.name
         cell.movieRateLabel.text = String(cellVM.vote_average!)
         
-        let url = URL(string: Constants.imagePath + cellVM.poster_path!)
-        let data = try? Data(contentsOf: url!)
-
-        if let imageData = data {
-            let image = UIImage(data: imageData)
-            cell.moveImageView.image = image
-        }
+       
+        cell.moveImageView.image = urlConvertImage(url: cellVM.backdrop_path!)
+        
         cell.selectionStyle = .none
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        self.modelDetail = dataViewModel.tvShowsModel[indexPath.row]
+        performSegue(withIdentifier: "detailFromMain", sender: modelDetail)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if let vc = segue.destination as? TvShowsDetailViewController, let detailToSend = sender as? TvShowItem {
+               vc.detailModel = detailToSend
+           }
+
+   }
 }
 

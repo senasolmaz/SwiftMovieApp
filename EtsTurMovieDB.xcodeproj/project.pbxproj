@@ -29,6 +29,12 @@
 		A74A9AA6283EAFBD00F14D7E /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = A74A9AA5283EAFBD00F14D7E /* FirebaseAnalytics */; };
 		A74A9AA8283EAFBD00F14D7E /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = A74A9AA7283EAFBD00F14D7E /* FirebaseRemoteConfig */; };
 		A74A9AAA283EAFBD00F14D7E /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A74A9AA9283EAFBD00F14D7E /* FirebaseRemoteConfigSwift */; };
+		A78EFA75284141EB0025B77C /* ViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78EFA74284141EB0025B77C /* ViewController+Extensions.swift */; };
+		A78EFA77284346C50025B77C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78EFA76284346C50025B77C /* SearchViewController.swift */; };
+		A78EFA7B2843494C0025B77C /* SearchItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78EFA792843494C0025B77C /* SearchItemCell.swift */; };
+		A78EFA7C2843494C0025B77C /* SearchItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A78EFA7A2843494C0025B77C /* SearchItemCell.xib */; };
+		A78EFA7E28434D0D0025B77C /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78EFA7D28434D0D0025B77C /* SearchViewModel.swift */; };
+		A78EFA8028435A6A0025B77C /* TvShowsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78EFA7F28435A6A0025B77C /* TvShowsDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +60,12 @@
 		A74A9A9D283EA73C00F14D7E /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		A74A9AA0283EA7C200F14D7E /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		A74A9AA2283EAC6500F14D7E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A78EFA74284141EB0025B77C /* ViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extensions.swift"; sourceTree = "<group>"; };
+		A78EFA76284346C50025B77C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		A78EFA792843494C0025B77C /* SearchItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemCell.swift; sourceTree = "<group>"; };
+		A78EFA7A2843494C0025B77C /* SearchItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchItemCell.xib; sourceTree = "<group>"; };
+		A78EFA7D28434D0D0025B77C /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		A78EFA7F28435A6A0025B77C /* TvShowsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowsDetailViewController.swift; sourceTree = "<group>"; };
 		D03C441FA1824487520537E3 /* Pods-EtsTurMovieDB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EtsTurMovieDB.debug.xcconfig"; path = "Target Support Files/Pods-EtsTurMovieDB/Pods-EtsTurMovieDB.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,6 +131,7 @@
 			children = (
 				A714D8852840D9F800D9341D /* BaseViewModel.swift */,
 				A714D8872840DA1B00D9341D /* ShowsViewModel.swift */,
+				A78EFA7D28434D0D0025B77C /* SearchViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -144,6 +157,7 @@
 		A74A9A84283EA6B100F14D7E /* EtsTurMovieDB */ = {
 			isa = PBXGroup;
 			children = (
+				A78EFA73284141D90025B77C /* Extensions */,
 				A714D8842840D9E700D9341D /* ViewModel */,
 				A714D8812840D62A00D9341D /* Network */,
 				A714D87E2840D47100D9341D /* Models */,
@@ -165,10 +179,13 @@
 		A74A9A9C283EA6F600F14D7E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A78EFA78284349310025B77C /* SearchItem */,
 				A74A9A89283EA6B100F14D7E /* TvShowListController.swift */,
 				A714D8792840CB9900D9341D /* MovieItem */,
 				A74A9A9D283EA73C00F14D7E /* SplashViewController.swift */,
 				A714D871283FE1D700D9341D /* HomePageViewController.swift */,
+				A78EFA76284346C50025B77C /* SearchViewController.swift */,
+				A78EFA7F28435A6A0025B77C /* TvShowsDetailViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -187,6 +204,23 @@
 				A714D8892840FE4A00D9341D /* Constants.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		A78EFA73284141D90025B77C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A78EFA74284141EB0025B77C /* ViewController+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A78EFA78284349310025B77C /* SearchItem */ = {
+			isa = PBXGroup;
+			children = (
+				A78EFA792843494C0025B77C /* SearchItemCell.swift */,
+				A78EFA7A2843494C0025B77C /* SearchItemCell.xib */,
+			);
+			path = SearchItem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +295,7 @@
 				A74A9AA3283EAC6500F14D7E /* GoogleService-Info.plist in Resources */,
 				A74A9A92283EA6B400F14D7E /* Assets.xcassets in Resources */,
 				A714D87D2840CBB800D9341D /* MovieItemCell.xib in Resources */,
+				A78EFA7C2843494C0025B77C /* SearchItemCell.xib in Resources */,
 				A74A9A8D283EA6B100F14D7E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,17 +349,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A78EFA77284346C50025B77C /* SearchViewController.swift in Sources */,
 				A74A9A8A283EA6B100F14D7E /* TvShowListController.swift in Sources */,
 				A714D8862840D9F800D9341D /* BaseViewModel.swift in Sources */,
 				A714D872283FE1D700D9341D /* HomePageViewController.swift in Sources */,
+				A78EFA8028435A6A0025B77C /* TvShowsDetailViewController.swift in Sources */,
+				A78EFA7B2843494C0025B77C /* SearchItemCell.swift in Sources */,
 				A714D8802840D48C00D9341D /* TvShows.swift in Sources */,
 				A74A9A86283EA6B100F14D7E /* AppDelegate.swift in Sources */,
 				A74A9AA1283EA7C200F14D7E /* Reachability.swift in Sources */,
+				A78EFA75284141EB0025B77C /* ViewController+Extensions.swift in Sources */,
 				A74A9A88283EA6B100F14D7E /* SceneDelegate.swift in Sources */,
 				A714D88A2840FE4A00D9341D /* Constants.swift in Sources */,
 				A714D8832840D63E00D9341D /* ApiService.swift in Sources */,
 				A714D87C2840CBB800D9341D /* MovieItemCell.swift in Sources */,
 				A74A9A90283EA6B100F14D7E /* EtsTurMovieDB.xcdatamodeld in Sources */,
+				A78EFA7E28434D0D0025B77C /* SearchViewModel.swift in Sources */,
 				A74A9A9E283EA73C00F14D7E /* SplashViewController.swift in Sources */,
 				A714D8882840DA1B00D9341D /* ShowsViewModel.swift in Sources */,
 			);
